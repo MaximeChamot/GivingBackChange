@@ -1,0 +1,12 @@
+C:\dev\perso\Lombard Odier\GivingBackChange\GivingBackChange\GivingBackChange.Referential\bin\Debug\netcoreapp2.1\GivingBackChange.Referential.deps.json
+C:\dev\perso\Lombard Odier\GivingBackChange\GivingBackChange\GivingBackChange.Referential\bin\Debug\netcoreapp2.1\GivingBackChange.Referential.dll
+C:\dev\perso\Lombard Odier\GivingBackChange\GivingBackChange\GivingBackChange.Referential\bin\Debug\netcoreapp2.1\GivingBackChange.Referential.pdb
+C:\dev\perso\Lombard Odier\GivingBackChange\GivingBackChange\GivingBackChange.Referential\obj\Debug\netcoreapp2.1\GivingBackChange.Referential.csproj.CoreCompileInputs.cache
+C:\dev\perso\Lombard Odier\GivingBackChange\GivingBackChange\GivingBackChange.Referential\obj\Debug\netcoreapp2.1\GivingBackChange.Referential.AssemblyInfoInputs.cache
+C:\dev\perso\Lombard Odier\GivingBackChange\GivingBackChange\GivingBackChange.Referential\obj\Debug\netcoreapp2.1\GivingBackChange.Referential.AssemblyInfo.cs
+C:\dev\perso\Lombard Odier\GivingBackChange\GivingBackChange\GivingBackChange.Referential\obj\Debug\netcoreapp2.1\GivingBackChange.Referential.dll
+C:\dev\perso\Lombard Odier\GivingBackChange\GivingBackChange\GivingBackChange.Referential\obj\Debug\netcoreapp2.1\GivingBackChange.Referential.pdb
+C:\dev\perso\Lombard Odier\GivingBackChange\GivingBackChange\GivingBackChange.Referential\bin\Debug\netcoreapp2.1\GivingBackChange.Entity.dll
+C:\dev\perso\Lombard Odier\GivingBackChange\GivingBackChange\GivingBackChange.Referential\bin\Debug\netcoreapp2.1\GivingBackChange.Entity.pdb
+C:\dev\perso\Lombard Odier\GivingBackChange\GivingBackChange\GivingBackChange.Referential\obj\Debug\netcoreapp2.1\GivingBackChange.Referential.csprojAssemblyReference.cache
+C:\dev\perso\Lombard Odier\GivingBackChange\GivingBackChange\GivingBackChange.Referential\obj\Debug\netcoreapp2.1\GivingBackChange.Referential.csproj.CopyComplete
