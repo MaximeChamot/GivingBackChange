@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using GivingBackChange.Business.BusinessObjects;
+﻿using GivingBackChange.Business.BusinessObjects;
 using GivingBackChange.Business.Services.Implementations.GetChangeServices.Base;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace GivingBackChange.Business.Services.Implementations.GetChangeServices
 {
@@ -13,7 +14,7 @@ namespace GivingBackChange.Business.Services.Implementations.GetChangeServices
 
         public override async Task<List<CoinBo>> GetChange(float remaningAmount)
         {
-            var coinReferential = await this._coinBoxService.GetCoinsOrderedByDescendingOrderValue();
+            var coinReferential = (await this._coinBoxService.GetCoins()).OrderByDescending(c => c.Value).ToList();
             var change = new List<CoinBo>();
 
             this.GetChangeRec(this.GetRemainingAmountInCents(remaningAmount), 0, coinReferential, change);
@@ -28,7 +29,7 @@ namespace GivingBackChange.Business.Services.Implementations.GetChangeServices
                 return;
             }
 
-            if (remaningAmountInCents >= coinReferential[i].ValueInCent)
+            if (remaningAmountInCents >= coinReferential[i].ValueInCent && coinReferential[i].Quantity > 0)
             {
                 var time = (int)(remaningAmountInCents / coinReferential[i].ValueInCent);
                 remaningAmountInCents = remaningAmountInCents - (time * coinReferential[i].ValueInCent);
