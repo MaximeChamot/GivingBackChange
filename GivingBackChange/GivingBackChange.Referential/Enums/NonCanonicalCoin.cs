@@ -2,7 +2,7 @@
 {
     public enum NonCanonicalCoin
     {
-        One,
+        One = 1,
         Three,
         Four
     }

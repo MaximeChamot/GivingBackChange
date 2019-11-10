@@ -2,7 +2,7 @@
 {
     public enum SwissFrancCoin
     {
-        FiveCents,
+        FiveCents = 1,
         TenCents,
         TwentyCents,
         FiftyCents,
