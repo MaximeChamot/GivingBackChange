@@ -12,7 +12,7 @@ namespace GivingBackChange.Dal.Managers.Implementations
 
         public StoreManager()
         {
-            this._context = new GivingBackChangeContext();
+            this._context = GivingBackChangeContext.GetInstance();
         }
 
         #region Dispose
@@ -45,7 +45,7 @@ namespace GivingBackChange.Dal.Managers.Implementations
 
         #endregion
 
-        public async Task Save()
+        public async Task SaveChanges()
         {
             await this._context.SaveChangesAsync();
         }

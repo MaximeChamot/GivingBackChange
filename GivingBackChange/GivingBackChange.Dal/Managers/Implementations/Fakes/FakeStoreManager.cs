@@ -14,7 +14,7 @@ namespace GivingBackChange.Dal.Managers.Implementations.Fakes
 
         public ICoinBoxRepository CoinBoxRepository => this._coinBoxRepository ?? (this._coinBoxRepository = new FakeCoinBoxRepository());
 
-        public Task Save()
+        public Task SaveChanges()
         {
             throw new System.NotImplementedException();
         }
