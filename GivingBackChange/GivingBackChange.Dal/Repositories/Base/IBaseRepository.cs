@@ -11,7 +11,7 @@ namespace GivingBackChange.Dal.Repositories.Base
 
         Task Create(T entity);
 
-        Task CreateAll(IEnumerable<T> entities);
+        Task CreateAll(IList<T> entities);
 
         #endregion
 
@@ -29,7 +29,7 @@ namespace GivingBackChange.Dal.Repositories.Base
 
         Task Update(T entity);
 
-        Task UpdateAll(IEnumerable<T> entity);
+        Task UpdateAll(IList<T> entity);
 
         #endregion
 
@@ -37,7 +37,7 @@ namespace GivingBackChange.Dal.Repositories.Base
 
         Task Delete(T entity);
 
-        Task DeleteAll(IEnumerable<T> entities);
+        Task DeleteAll(IList<T> entities);
 
         Task DeleteMany(Expression<Func<T, bool>> where);
 

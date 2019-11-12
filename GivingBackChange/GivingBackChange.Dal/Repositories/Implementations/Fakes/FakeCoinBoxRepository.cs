@@ -14,7 +14,7 @@ namespace GivingBackChange.Dal.Repositories.Implementations.Fakes
             throw new NotImplementedException();
         }
 
-        public Task CreateAll(IEnumerable<Coin> entities)
+        public Task CreateAll(IList<Coin> entities)
         {
             throw new NotImplementedException();
         }
@@ -44,7 +44,7 @@ namespace GivingBackChange.Dal.Repositories.Implementations.Fakes
             throw new NotImplementedException();
         }
 
-        public Task UpdateAll(IEnumerable<Coin> entity)
+        public Task UpdateAll(IList<Coin> entity)
         {
             throw new NotImplementedException();
         }
@@ -54,7 +54,7 @@ namespace GivingBackChange.Dal.Repositories.Implementations.Fakes
             throw new NotImplementedException();
         }
 
-        public Task DeleteAll(IEnumerable<Coin> entities)
+        public Task DeleteAll(IList<Coin> entities)
         {
             throw new NotImplementedException();
         }
