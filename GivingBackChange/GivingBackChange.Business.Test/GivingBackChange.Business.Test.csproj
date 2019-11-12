@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <Folder Include="BusinessObjects\" />
+    <Folder Include="Services\Implementations\GetChangeServices\Base\" />
   </ItemGroup>
 
   <ItemGroup>
