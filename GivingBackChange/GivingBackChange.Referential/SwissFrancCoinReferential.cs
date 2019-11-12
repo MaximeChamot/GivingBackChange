@@ -16,7 +16,7 @@ namespace GivingBackChange.Referential
             new List<Coin>
             {
                 FiveCents,
-                TenCentimes,
+                TenCents,
                 TwentyCents,
                 FiftyCents,
                 OneFranc,
@@ -25,7 +25,7 @@ namespace GivingBackChange.Referential
             };
 
         public static readonly Coin FiveCents = new Coin((int)SwissFrancCoin.FiveCents, "0,05.-", 0.05f, 10);
-        public static readonly Coin TenCentimes = new Coin((int)SwissFrancCoin.TenCents, "0,10.-", 0.1f, 10);
+        public static readonly Coin TenCents = new Coin((int)SwissFrancCoin.TenCents, "0,10.-", 0.1f, 10);
         public static readonly Coin TwentyCents = new Coin((int)SwissFrancCoin.TwentyCents, "0,20.-", 0.2f, 10);
         public static readonly Coin FiftyCents = new Coin((int)SwissFrancCoin.FiftyCents, "0,50.-", 0.5f, 10);
         public static readonly Coin OneFranc = new Coin((int)SwissFrancCoin.OneFranc, "1.-", 1f, 10);
