@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-using GivingBackChange.Dal.Contexts;
+﻿using GivingBackChange.Dal.Contexts;
 using GivingBackChange.Dal.Repositories;
 using GivingBackChange.Dal.Repositories.Implementations;
+using System;
+using System.Threading.Tasks;
 
 namespace GivingBackChange.Dal.Managers.Implementations
 {

@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using GivingBackChange.Dal.Contexts;
-using System.Threading.Tasks;
-using GivingBackChange.Entity;
+﻿using GivingBackChange.Dal.Contexts;
 using GivingBackChange.Referential;
+using System.Threading.Tasks;
 
 namespace GivingBackChange.Dal.Managers.Implementations
 {
