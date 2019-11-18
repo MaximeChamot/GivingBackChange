@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using GivingBackChange.Business.BusinessObjects;
+﻿using GivingBackChange.Business.BusinessObjects;
 using NUnit.Framework;
 
 namespace GivingBackChange.Business.Test.BusinessObjects
@@ -7,7 +6,7 @@ namespace GivingBackChange.Business.Test.BusinessObjects
     public class CoinBoTest
     {
         [Test]
-        [TestCase(0, 0)]       
+        [TestCase(0, 0)]
         [TestCase(0.05, 5)]
         [TestCase(0.10, 10)]
         [TestCase(0.20, 20)]
@@ -21,7 +20,7 @@ namespace GivingBackChange.Business.Test.BusinessObjects
         [TestCase(50, 5000)]
         [TestCase(100, 10000)]
         [TestCase(1000000, 100000000)]
-        public async Task WhenCreatingCoinBoThenValueInCentsIsCorrect(decimal value, int valueInCent)
+        public void WhenCreatingCoinBoThenValueInCentsIsCorrect(decimal value, int valueInCent)
         {
             var coinBo = new CoinBo(0, "test", value, 1);
 
