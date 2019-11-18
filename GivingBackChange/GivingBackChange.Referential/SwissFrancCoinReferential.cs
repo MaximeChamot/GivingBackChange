@@ -24,12 +24,12 @@ namespace GivingBackChange.Referential
                 FiveFrancs
             };
 
-        public static readonly Coin FiveCents = new Coin((int)SwissFrancCoin.FiveCents, "0,05.-", 0.05f, 10);
-        public static readonly Coin TenCents = new Coin((int)SwissFrancCoin.TenCents, "0,10.-", 0.1f, 10);
-        public static readonly Coin TwentyCents = new Coin((int)SwissFrancCoin.TwentyCents, "0,20.-", 0.2f, 10);
-        public static readonly Coin FiftyCents = new Coin((int)SwissFrancCoin.FiftyCents, "0,50.-", 0.5f, 10);
-        public static readonly Coin OneFranc = new Coin((int)SwissFrancCoin.OneFranc, "1.-", 1f, 10);
-        public static readonly Coin TwoFrancs = new Coin((int)SwissFrancCoin.Twofrancs, "2.-", 2f, 10);
-        public static readonly Coin FiveFrancs = new Coin((int)SwissFrancCoin.FiveFrancs, "5.-", 5f, 10);
+        public static readonly Coin FiveCents = new Coin((int)SwissFrancCoin.FiveCents, "0,05.-", 0.05m, 10);
+        public static readonly Coin TenCents = new Coin((int)SwissFrancCoin.TenCents, "0,10.-", 0.1m, 10);
+        public static readonly Coin TwentyCents = new Coin((int)SwissFrancCoin.TwentyCents, "0,20.-", 0.2m, 10);
+        public static readonly Coin FiftyCents = new Coin((int)SwissFrancCoin.FiftyCents, "0,50.-", 0.5m, 10);
+        public static readonly Coin OneFranc = new Coin((int)SwissFrancCoin.OneFranc, "1.-", 1m, 10);
+        public static readonly Coin TwoFrancs = new Coin((int)SwissFrancCoin.Twofrancs, "2.-", 2m, 10);
+        public static readonly Coin FiveFrancs = new Coin((int)SwissFrancCoin.FiveFrancs, "5.-", 5m, 10);
     }
 }
