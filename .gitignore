@@ -361,3 +361,5 @@ MigrationBackup/
 *.txt
 
 *.CopyComplete
+
+*.lock
