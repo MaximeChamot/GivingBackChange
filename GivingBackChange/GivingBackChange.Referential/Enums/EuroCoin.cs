@@ -2,7 +2,7 @@
 {
     public enum EuroCoin
     {
-        OneCent,
+        OneCent = 1,
         TwoCents,
         FiveCents,
         TenCents,

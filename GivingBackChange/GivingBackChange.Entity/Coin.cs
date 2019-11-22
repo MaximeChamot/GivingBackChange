@@ -1,8 +1,10 @@
-﻿namespace GivingBackChange.Entity
+﻿using GivingBackChange.Entity.Base;
+
+namespace GivingBackChange.Entity
 {
-    public class Coin
+    public class Coin : EntityBase
     {
-        public Coin(int id, string label, float value, int quantity)
+        public Coin(int id, string label, decimal value, int quantity)
         {
             this.Id = id;
             this.Label = label;
@@ -10,11 +12,9 @@
             this.Quantity = quantity;
         }
 
-        public int Id { get; set; }
-
         public string Label { get; set; }
 
-        public float Value { get; set; }
+        public decimal Value { get; set; }
 
         public int Quantity { get; set; }
     }

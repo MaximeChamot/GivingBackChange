@@ -5,16 +5,23 @@ namespace GivingBackChange.Dal.Contexts
 {
     public class GivingBackChangeContext : DbContext
     {
-        public GivingBackChangeContext()
+        private static GivingBackChangeContext _instance;
+        private const string ConnectionString = "Data Source='C:\\Program Files\\dotnet\\givingBackChange.db'";
+
+        private GivingBackChangeContext()
         {
-            
         }
 
-        public DbSet<Coin> Coin { get; set; }
+        public static GivingBackChangeContext GetInstance()
+        {
+            return _instance ?? (_instance = new GivingBackChangeContext());
+        }
+
+        public DbSet<Coin> Coins { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlite("Data Source=./vendingMachine.db");
+            options.UseSqlite(ConnectionString);
         }
     }
 }

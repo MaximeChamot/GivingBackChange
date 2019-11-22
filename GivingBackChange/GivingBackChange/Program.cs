@@ -1,46 +1,51 @@
-﻿using System;
+﻿using GivingBackChange.Business.Services;
+using GivingBackChange.Ui.IoC;
+using System;
 using System.Threading.Tasks;
-using GivingBackChange.Business.IoC;
-using GivingBackChange.Business.Services;
-using GivingBackChange.Dal.IoC;
+using GivingBackChange.Ui.Readers;
 using Unity;
 
 namespace GivingBackChange.Ui
 {
-    class Program
+    internal class Program
     {
-        private static IUnityContainer _container;
-
-        private static IUnityContainer Container => _container = _container ?? new UnityContainer();
-
-        private static void RegisterDependencies()
+        private static void Main()
         {
-            UnityConfigurationBusiness.RegisterDependencies(Container);
-            UnityConfigurationDal.RegisterDependencies(Container);
+            InitializeApp();
+            RunAppAsync().Wait();
+        }
+
+        #region Initialize
+
+        private static async Task InitializeDatabase()
+        {
+            var databaseService = UnityConfigurationBase.Container.Resolve<IDatabaseService>();
+
+            await databaseService.DeleteAndCreateNewDatabase();
+            await databaseService.SeedData();
         }
 
         private static void InitializeApp()
         {
-            RegisterDependencies();
+            UnityConfigurationBase.RegisterDependencies();
+            InitializeDatabase().Wait();
         }
 
-        static void Main(string[] args)
-        {
-            InitializeApp();
-            RunAppAsync().Wait();
-            Console.ReadKey();
-        }
+        #endregion
 
         private static async Task RunAppAsync()
         {
-            var givingChangeService = Container.Resolve<IGetChangeService>();
-            var coins = await givingChangeService.GetChange(6f);
-            var i = 0;
-
-            while (i < coins.Count)
+            try
             {
-                Console.WriteLine($"{coins[i].Label} (Quantity : {coins[i].Quantity})");
-                i++;
+                var getChangeService = UnityConfigurationBase.Container.Resolve<IGetChangeService>();
+                var coinBoxService = UnityConfigurationBase.Container.Resolve<ICoinBoxService>();
+                var commandReader = new CommandReader(getChangeService, coinBoxService);
+
+                await commandReader.ReadCommands();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
         }
     }

@@ -1,14 +1,15 @@
-﻿using System;
+﻿using GivingBackChange.Dal.Contexts;
+using GivingBackChange.Entity.Base;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using GivingBackChange.Dal.Contexts;
-using Microsoft.EntityFrameworkCore;
 
 namespace GivingBackChange.Dal.Repositories.Base
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : class
+    public class BaseRepository<T> : IBaseRepository<T> where T : EntityBase
     {
         private GivingBackChangeContext _context;
 
@@ -22,13 +23,11 @@ namespace GivingBackChange.Dal.Repositories.Base
         public virtual async Task Create(T entity)
         {
             await this._context.Set<T>().AddAsync(entity);
-            //await this._context.SaveChangesAsync();
         }
 
-        public virtual async Task CreateAll(IEnumerable<T> entities)
+        public virtual async Task CreateAll(IList<T> entities)
         {
             await this._context.Set<T>().AddRangeAsync(entities);
-            //await this._context.SaveChangesAsync();
         }
 
         #endregion
@@ -56,22 +55,23 @@ namespace GivingBackChange.Dal.Repositories.Base
 
         public virtual async Task Update(T entity)
         {
-            //this._dbContext.Entry(entity).State = EntityState.Modified;
-
-            await Task.Run(() =>
+            if (this._context.Entry(entity).State == EntityState.Detached)
             {
-                this._context.Set<T>().Attach(entity);
-                this._context.Entry(entity).State = EntityState.Modified;
-            });
+                await this.DetachEntityFromEntityFramework(entity);
+            }
 
-            //await Task.Run(() => this._context.Set<T>().Update(entity));
-            //await this._context.SaveChangesAsync();
+            this._context.Entry(entity).State = EntityState.Modified;
         }
 
-        public virtual async Task UpdateAll(IEnumerable<T> entities)
+        public virtual async Task UpdateAll(IList<T> entities)
         {
-            await Task.Run(() => this._context.Set<T>().UpdateRange(entities));
-            //await this._context.SaveChangesAsync();
+            var i = 0;
+
+            while (entities != null && i < entities.Count)
+            {
+                await this.Update(entities[i]);
+                i++;
+            }
         }
 
         #endregion
@@ -80,37 +80,51 @@ namespace GivingBackChange.Dal.Repositories.Base
 
         public virtual async Task Delete(T entity)
         {
-            //if (this._context.Entry(entity).State == EntityState.Detached)
-            //{
-            //    this._context.Set<T>().Attach(entity);
-            //}
-
-            var searchedEntry = await this._context.Set<T>().FindAsync(entity);
-
-            if (searchedEntry == null)
+            if (this._context.Entry(entity).State == EntityState.Detached)
             {
-                return;
+                await this.DetachEntityFromEntityFramework(entity);
             }
 
-            this._context.Set<T>().Remove(searchedEntry);
+            this._context.Set<T>().Remove(entity);
         }
 
-        public virtual async Task DeleteAll(IEnumerable<T> entities)
+        public virtual async Task DeleteAll(IList<T> entities)
         {
-            await Task.Run(() => this._context.Set<T>().RemoveRange(entities));
-            //await this._context.SaveChangesAsync();
+            var i = 0;
+
+            while (entities != null && i < entities.Count)
+            {
+                await this.Delete(entities[i]);
+                i++;
+            }
         }
 
         public virtual async Task DeleteMany(Expression<Func<T, bool>> where)
         {
             var items = await this.GetMany(where);
 
-            foreach (var item in items.Where(item => this._context.Entry(item).State == EntityState.Detached))
+            await this.DeleteAll(items);
+        }
+
+        #endregion
+
+        #region Private member Function
+
+        private async Task DetachEntityFromEntityFramework(T entity)
+        {
+            if (entity == null)
             {
-                this._context.Set<T>().Attach(item);
+                return;
             }
 
-            await this.DeleteAll(items);
+            var searchedEntity = await this._context.Set<T>().FindAsync(entity.Id);
+
+            if (searchedEntity == null)
+            {
+                return;
+            }
+
+            this._context.Entry(searchedEntity).State = EntityState.Detached;
         }
 
         #endregion

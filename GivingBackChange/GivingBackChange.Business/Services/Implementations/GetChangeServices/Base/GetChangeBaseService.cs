@@ -14,9 +14,9 @@ namespace GivingBackChange.Business.Services.Implementations.GetChangeServices.B
             this._coinBoxService = coinBoxService ?? throw new ArgumentNullException(nameof(coinBoxService));
         }
 
-        public abstract Task<List<CoinBo>> GetChange(float remaningAmount);
+        public abstract Task<List<CoinBo>> GetChange(decimal remaningAmount);
 
-        protected virtual int GetRemainingAmountInCents(float remaningAmount)
+        protected virtual int GetRemainingAmountInCents(decimal remaningAmount)
         {
             return (int)(remaningAmount * 100);
         }

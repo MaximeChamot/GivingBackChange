@@ -12,9 +12,9 @@ namespace GivingBackChange.Business.Services.Implementations.GetChangeServices
         {
         }
 
-        public override async Task<List<CoinBo>> GetChange(float remaningAmount)
+        public override async Task<List<CoinBo>> GetChange(decimal remaningAmount)
         {
-            var coinReferential = await this._coinBoxService.GetCoinsOrderedByAscendingOrderValue();
+            var coinReferential = (await this._coinBoxService.GetCoins()).OrderBy(c => c.Value).ToList();
             var remaningAmountInCents = this.GetRemainingAmountInCents(remaningAmount);
 
             var computedChanges = new List<List<CoinBo>>

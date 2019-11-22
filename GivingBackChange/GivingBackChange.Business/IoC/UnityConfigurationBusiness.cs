@@ -18,6 +18,7 @@ namespace GivingBackChange.Business.IoC
             container.RegisterType<IGetChangeService, GetChangeGreedyAlgorithmService>(new ContainerControlledLifetimeManager());
 #endif
             container.RegisterType<ICoinBoxService, CoinBoxService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IDatabaseService, DatabaseService>(new ContainerControlledLifetimeManager());
         }
     }
 }

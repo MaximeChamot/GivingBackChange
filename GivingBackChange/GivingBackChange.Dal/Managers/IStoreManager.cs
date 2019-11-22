@@ -8,6 +8,6 @@ namespace GivingBackChange.Dal.Managers
     {
         ICoinBoxRepository CoinBoxRepository { get; }
 
-        Task Save();
+        Task SaveChanges();
     }
 }
