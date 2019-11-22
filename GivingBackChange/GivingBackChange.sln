@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GivingBackChange.Ui", "GivingBackChange\GivingBackChange.Ui.csproj", "{E039803D-7C0B-4CD6-B8A7-35C7C00B0700}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03.Presentation", "03.Presentation", "{6FB4C929-D82E-4517-B2BF-420F56E9E129}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04.Presentation", "04.Presentation", "{6FB4C929-D82E-4517-B2BF-420F56E9E129}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Business", "02.Business", "{0E018530-1A12-4FD3-8854-09BEEB280377}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03.Business", "03.Business", "{0E018530-1A12-4FD3-8854-09BEEB280377}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.DataAccess", "01.DataAccess", "{DF41D884-D148-46DB-A0B8-AD49D5B87324}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.DataAccess", "02.DataAccess", "{DF41D884-D148-46DB-A0B8-AD49D5B87324}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00.Test", "00.Test", "{1CFDB0BB-B616-4BF2-ADB5-8989FCE934FD}"
 EndProject
@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GivingBackChange.Entity", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GivingBackChange.Referential", "GivingBackChange.Referential\GivingBackChange.Referential.csproj", "{751100BD-D78F-4669-B253-F448A5C789AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GivingBackChange.Business.Test", "GivingBackChange.Business.Test\GivingBackChange.Business.Test.csproj", "{14F6E302-9B88-4AE8-BF63-514B3BA36E61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GivingBackChange.Business.Test", "GivingBackChange.Business.Test\GivingBackChange.Business.Test.csproj", "{14F6E302-9B88-4AE8-BF63-514B3BA36E61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Transverse", "01.Transverse", "{0D067F66-0F70-452F-A710-8CC8A0ED987B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

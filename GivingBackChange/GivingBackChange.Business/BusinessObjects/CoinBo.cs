@@ -1,23 +1,13 @@
-﻿namespace GivingBackChange.Business.BusinessObjects
+﻿using GivingBackChange.Entity;
+
+namespace GivingBackChange.Business.BusinessObjects
 {
-    public class CoinBo
+    public class CoinBo : Coin
     {
-        public CoinBo(int id, string label, decimal value, int quantity)
+        public CoinBo(int id, string label, decimal value, int quantity) : base(id, label, value, quantity)
         {
-            this.Id = id;
-            this.Label = label;
-            this.Value = value;
-            this.Quantity = quantity;
         }
 
-        public int Id { get; set; }
-
-        public string Label { get; set; }
-
-        public decimal Value { get; set; }
-
         public int ValueInCent => (int)(this.Value * 100);
-
-        public int Quantity { get; set; }
     }
 }
